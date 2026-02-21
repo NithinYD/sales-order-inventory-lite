@@ -1,0 +1,37 @@
+#version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: inventory
+      POSTGRES_USER: inventory
+      POSTGRES_PASSWORD: inventory
+    ports:
+      - "5432:5432"
+  
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://inventory:inventory@db:5432/inventory
+  
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com   # apna email de sakte ho
+      PGADMIN_DEFAULT_PASSWORD: admin          # strong password rakho
+    ports:
+      - "5050:80"    # browser mai http://localhost:5050 se open hoga
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

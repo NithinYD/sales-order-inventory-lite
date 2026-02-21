@@ -1,0 +1,158 @@
+{
+  "info": {
+    "name": "Vikmo Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/api/products/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "products"]
+        }
+      }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"product_name\": \"Brake Pad\", \"selling_price\": 500, \"purchase_price\": 400, \"tax_rate\": 18.0, \"category\": 1, \"warehouse\": 1, \"supplier\": 1, \"stock\": 100}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/products/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "products"]
+        }
+      }
+    },
+    {
+      "name": "List Dealers",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/api/dealers/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "dealers"]
+        }
+      }
+    },
+    {
+      "name": "Create Dealer",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"ABC Motors\", \"phone_number\": \"1234567890\", \"email\": \"abc@example.com\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/dealers/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "dealers"]
+        }
+      }
+    },
+    {
+      "name": "List Orders",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/api/orders/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "orders"]
+        }
+      }
+    },
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"dealer\": 1, \"items\": [{\"product\": 1, \"quantity\": 10, \"unit_price\": 500}]}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/orders/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "orders"]
+        }
+      }
+    },
+    {
+      "name": "Confirm Order",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8000/api/orders/1/confirm/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "orders", "1", "confirm"]
+        }
+      }
+    },
+    {
+      "name": "Deliver Order",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8000/api/orders/1/deliver/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "orders", "1", "deliver"]
+        }
+      }
+    },
+    {
+      "name": "List Inventory",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/api/inventory/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "inventory"]
+        }
+      }
+    },
+    {
+      "name": "Manual Inventory Adjustment",
+      "request": {
+        "method": "PUT",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"quantity\": 120}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/inventory/1/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "inventory", "1"]
+        }
+      }
+    }
+  ]
+}
