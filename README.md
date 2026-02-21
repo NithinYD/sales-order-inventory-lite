@@ -16,6 +16,7 @@ APIs allow system integration
 
 The focus of this project is backend logic, REST API development, atomic transactions, and clean architecture.
 
+
 2️⃣ Technology Stack
 
 Python 3.10+
@@ -35,6 +36,7 @@ Postman (API testing)
 Git & GitHub
 
 3️⃣ Functional Requirements Implemented
+
 Product Management
 
 Create Product
@@ -184,6 +186,7 @@ Create Superuser
 python manage.py createsuperuser
 Run Server
 python manage.py runserver
+
 9️⃣ API Testing
 
 Postman collection included:
